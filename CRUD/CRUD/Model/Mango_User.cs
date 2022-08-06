@@ -2,13 +2,13 @@
 
 namespace CRUD.Model
 {
-    public class Category
+    public class Mango_User
     {
         [Key]
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Display(Name ="Display Order")]
-        public int DisplayOrder { get; set; }
+        public int Age { get; set; }
+        public string Gender { get; set; }
     }
 }
