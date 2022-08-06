@@ -10,5 +10,6 @@ namespace CRUD.Data
 
         }
         public DbSet<Category> Category { get; set; }
+        public DbSet<Mango_User> MangoUser { get; set; }
     }
 }
