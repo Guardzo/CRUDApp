@@ -16,3 +16,10 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.create-form{
+    padding-left:20%;
+}
+.button-arrangement{
+    margin-right:1%;
+}

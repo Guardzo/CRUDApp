@@ -1,0 +1,48 @@
+﻿@page
+@model CRUD.Pages.Users.CreateUserModel
+@{
+}
+
+<form method="post" class="w-75 create-form" >
+    <div class="border p-3 mt-4 ms-3">
+        <div class="row pb-5">
+            <h2 class="text-primary pl-3">Create User</h2>
+            <hr/>
+        </div>
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="mangoUser.Name"></label>
+            <input asp-for="mangoUser.Name" type="text" class="form-control rounded-3 border-dark"/>
+            <span asp-validation-for="mangoUser.Name" class="text-danger" ></span>
+        </div>
+        <div class="mb-4">
+            <label asp-for="mangoUser.Gender"></label><br/>
+            @*<input asp-for="mangoUser.Gender" type="text" class="form-control"/>*@
+            <select asp-for="mangoUser.Gender" class="form-select-sm rounded-3 border-dark">
+                <option value="">&lt;none&gt;</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+            <span asp-validation-for="mangoUser.Gender" class="text-danger" ></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="mangoUser.DateOfBirth"></label>
+            <input asp-for="mangoUser.DateOfBirth" type="date" class="form-control rounded-3 border-dark"/>
+            <span asp-validation-for="mangoUser.DateOfBirth" class="text-danger" ></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="mangoUser.Email"></label>
+            <input asp-for="mangoUser.Email" type="email" class="form-control rounded-3 border-dark"/>
+            <span asp-validation-for="mangoUser.Email" class="text-danger" ></span>
+        </div>
+        <div></div>
+        <button type="submit" class="btn btn-primary rounded-3 button-arrangement" style="width:150px;">Create</button>
+        <button type="reset" class="btn btn-outline-secondary rounded-3" style="width:150px;">Reset</button>         
+    </div>
+</form>
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial"/>
+    }
+}
