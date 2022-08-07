@@ -5,18 +5,19 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace CRUD.Pages.Categories
 {
-    public class EditModel : PageModel
+    public class CreateModel : PageModel
     {
         private readonly ApplicationDbContext _db;
         public Category Category { get; set; }
 
-        public EditModel(ApplicationDbContext db)
+        public CreateModel(ApplicationDbContext db)
         {
             _db = db;
         }
 
-        public void OnGet()
+        public void OnGet(int id)
         {
+            Category = _db.Category.Find(id);
         }
 
         public async Task<IActionResult> OnPost(Category category)
@@ -27,7 +28,7 @@ namespace CRUD.Pages.Categories
             }
             if (ModelState.IsValid)
             {
-                await _db.Category.AddAsync(category);
+                _db.Category.Update(category);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("Index");
             }

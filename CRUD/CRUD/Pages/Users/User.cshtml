@@ -9,7 +9,7 @@
             <h2 class="text-primary">Users List</h2>
         </div>
         <div class="col-6 text-end" >
-            <a asp-page="create" class="btn btn-primary" ><i class="bi bi-pencil-square"></i> &nbsp; Create New User</a>
+            <a asp-page="CreateUser" class="btn btn-primary" ><i class="bi bi-pencil-square"></i> &nbsp; Create New User</a>
         </div>
     </div>
 
@@ -22,20 +22,31 @@
                     Name
                 </th>
                 <th>
-                    Age
-                </th>
-                <th>
                     Gender
                 </th>
+                <th>
+                    Email
+                </th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var obj in Model.MangoUser)
             {
             <tr>
-                <td width="50%">@obj.Name</td>
-                <td width="30%">@obj.Age</td>
-                <td width="30%">@obj.Gender</td>
+                <td width="30%">@obj.Name</td>
+                <td width="25%">@obj.Gender</td>
+                <td width="25%">@obj.Email</td>
+                <td width="20%">
+                    <div>
+                    <a asp-page="EditUser" asp-route-id="@obj.Id" class="btn btn-primary mx-2 rounded-3">
+                        <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a asp-page="DeleteUser" asp-route-id="@obj.Id" class="btn btn-danger mx-2 rounded-3">
+                        <i class="bi bi-trash3-fill"></i>
+                    </a>
+                    </div>
+                </td>
             </tr>
             }
 

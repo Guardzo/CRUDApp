@@ -8,7 +8,9 @@ namespace CRUD.Model
         public int Id { get; set; }
         [Required]
         public string Name { get; set; }
-        public int Age { get; set; }
+        [Display(Name="Date of Birth")]
+        public DateTime DateOfBirth { get; set; }
         public string Gender { get; set; }
+        public string Email { get; set; }
     }
 }
